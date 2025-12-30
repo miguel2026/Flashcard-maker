@@ -2,8 +2,10 @@ import streamlit as st
 from streamlit import session_state as ss
 from agent import load_model
 from repository.functions import *
+from repository.db import init_db
 from UI import check_email
 
+init_db()
 load_model()
 
 if not st.user.is_logged_in:
