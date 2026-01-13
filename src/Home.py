@@ -7,7 +7,7 @@ from UI import check_email
 load_model()
 
 if not st.user.is_logged_in:
-    ss.user_id = check_email(ss)
+    check_email(ss)
     
 st.title("Skill Loop", text_alignment='center')
 

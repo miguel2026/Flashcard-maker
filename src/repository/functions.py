@@ -1,5 +1,5 @@
 from streamlit import connection
-from src.models import User, Chat, Iteration
+from models import User, Chat, Iteration
 from sqlalchemy import text
 from dataclasses import asdict
 
