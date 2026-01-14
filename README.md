@@ -1,7 +1,11 @@
+https://github.com/user-attachments/assets/0d67c825-af63-4325-8dba-86075dc627ad
+
 # Flashcard-maker
-Pequeno projeto utilizando Ollama, langgraph, streamlit e supabase para criação de flashcards para o anki.
+Pequeno projeto utilizando Ollama, langgraph, streamlit e supabase para criação de flashcards e listas de exercicios. Além de um tutor privado. O objetivo e realizar isto com o llama3.2:1b, mas pode trocar o modelo para outro.
+
 # Importante:
 Troque o src/.streamlit/secrets_example.toml para com valores corretos. Para criar a autenticação do google recomendo este [video](https://youtu.be/QziGFxHM1pA?si=i1vgrJiDLCsyyQHZ). Pode utilizar outra base de dados se quiser.
+
 # Features:
 
 ## Tutor:
