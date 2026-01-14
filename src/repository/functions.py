@@ -1,5 +1,5 @@
 from streamlit import connection
-from src.models import User, Chat, Iteration
+from models import User, Chat, Iteration
 from sqlalchemy import text
 from dataclasses import asdict
 
@@ -39,10 +39,11 @@ def get_id_from_email(email:str, conn = None) -> int | bool:
         result = session.execute(
             text("SELECT id FROM public.user WHERE email = :email"),params={'email':email}
         ).one_or_none()
+
         if result is not None:
             return result.id
         else:
-            return False
+            raise ValueError("Email ou usuário inexistente")
 
 def get_user_info(id:int, conn = None):
     conn = conn or get_conn()

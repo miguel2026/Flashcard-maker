@@ -1,6 +1,6 @@
 from models import User, Chat, Iteration
 from sqlalchemy import text
-from functions import get_conn
+from repository.functions import get_conn
 import streamlit as st
 
 

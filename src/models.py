@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Any
 from dataclasses import dataclass, field
 import pytz
 
@@ -41,6 +41,7 @@ class Chat:
     def change_ids_iterations(self):
         for iteration in self.iterations:
             iteration.chat_id = self.id
+            
     def get_iterations(self):
 
         iterations = []
@@ -60,15 +61,21 @@ class Chat:
 class Iteration:
     message: Optional[str] = None
     response: Optional[str] = None
+    sources: Optional[List[str]] = None
 
-    def get_iteration(self) -> List[dict[str, str]]:
+    def get_iteration(self, with_sources=False) -> List[dict[str, str]]:
         iteration = []
         
         if self.message != None:
             iteration.append({"role": "user", "content": self.message})
         
         if self.response != None:
-            iteration.append({"role": "assistant", "content": self.response})
+            response: dict[str, Any] = {"role":"assistant", "content": self.response}
+
+            if with_sources:
+                response["sources"] = self.sources
+            
+            iteration.append(response)
 
         if len(iteration) > 0:
             return iteration

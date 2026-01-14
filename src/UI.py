@@ -16,7 +16,7 @@ def new_chat(ss):
         ss.atual_chat = ss.chats[0]
 
 
-def check_email(ss) -> int:
+def check_email(ss) -> None:
 
     if not st.user.is_logged_in:
 
@@ -25,12 +25,11 @@ def check_email(ss) -> int:
             st.login('google')
 
             if st.user.get('email') is not None:
-                id = save_user(str(st.user.given_name), str(st.user.email))
+                ss.user_id = save_user(str(st.user.given_name), str(st.user.email))
 
     else:
-        id = get_id_from_email(str(st.user.email))
+        ss.user_id = get_id_from_email(str(st.user.email))
     
-    return id
 
 def display_chats(ss):
 
